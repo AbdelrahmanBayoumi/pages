@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Web Utils</title>
+    <meta
+      name="description"
+      content="A curated collection of browser-based security and general web tools."
+    />
+    <link rel="canonical" href="https://yourusername.github.io/" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="icon-512.png" />
+
+    <!-- Tailwind + dark-mode config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
+    />
+  </head>
+  <body
+    class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors"
+  >
+    <header class="container mx-auto flex items-center justify-between py-6">
+      <h1 class="text-3xl font-bold">My Web Utils</h1>
+      <button
+        id="theme-toggle"
+        class="p-2 rounded focus:outline-none"
+        aria-label="Toggle Dark Mode"
+      >
+        <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
+      </button>
+    </header>
+
+    <main id="content" class="container mx-auto space-y-10"></main>
+
+    <script>
+      // ---------- THEME TOGGLE ----------
+      const htmlEl = document.documentElement;
+      const btn = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+
+      function setTheme() {
+        if (
+          localStorage.theme === "dark" ||
+          (!localStorage.theme &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          htmlEl.classList.add("dark");
+          icon.className = "fa-solid fa-sun text-xl";
+        } else {
+          htmlEl.classList.remove("dark");
+          icon.className = "fa-solid fa-moon text-xl";
+        }
+      }
+      setTheme();
+      btn.addEventListener("click", () => {
+        localStorage.theme = htmlEl.classList.contains("dark")
+          ? "light"
+          : "dark";
+        setTheme();
+      });
+
+      // ---------- RENDER APPS ----------
+      async function loadApps() {
+        const res = await fetch("apps.json");
+        const apps = await res.json();
+        const container = document.getElementById("content");
+
+        // group by category
+        const byCat = apps.reduce((acc, a) => {
+          (acc[a.category] = acc[a.category] || []).push(a);
+          return acc;
+        }, {});
+
+        // build JSON-LD list items
+        const listItems = [];
+
+        for (const [cat, items] of Object.entries(byCat)) {
+          const section = document.createElement("section");
+          section.innerHTML = `
+        <h2 class="text-2xl font-semibold mb-4">${
+          cat === "Security" ? "🔒 Security" : "🌐 General"
+        }</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      `;
+          const grid = section.querySelector("div");
+
+          items.forEach((app, i) => {
+            listItems.push({
+              "@type": "ListItem",
+              position: listItems.length + 1,
+              url: app.live,
+            });
+
+            const card = document.createElement("div");
+            card.className =
+              "p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow";
+            card.innerHTML = `
+          <div class="flex items-center mb-4">
+            <i class="fa-solid ${app.icon} fa-2x ${app.iconColor} mr-3"></i>
+            <h3 class="text-xl font-medium">${app.title}</h3>
+          </div>
+          <p class="mb-4 text-sm">${app.description}</p>
+          <div class="flex space-x-4">
+            <a href="${app.live}" target="_blank" class="flex items-center space-x-1 hover:underline">
+              <i class="fa-solid fa-external-link-alt"></i><span>Live</span>
+            </a>
+            <a href="${app.repo}" target="_blank" class="flex items-center space-x-1 hover:underline">
+              <i class="fab fa-github"></i><span>Repo</span>
+            </a>
+          </div>
+        `;
+            grid.append(card);
+          });
+
+          container.append(section);
+        }
+
+        // inject JSON-LD for SEO
+        const ld = {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "My Web Utils",
+          itemListElement: listItems,
+        };
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.textContent = JSON.stringify(ld);
+        document.head.append(script);
+      }
+      loadApps();
+    </script>
+  </body>
+</html>

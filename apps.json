@@ -1,0 +1,29 @@
+[
+    {
+        "category": "Security",
+        "icon": "fa-lock",
+        "iconColor": "text-indigo-600 dark:text-indigo-400",
+        "title": "AES-CBC Playground",
+        "description": "A lightweight client-side web tool for AES-256-CBC + SHA-256 key derivation.",
+        "live": "https://abdelrahmanbayoumi.github.io/aes-cbc-playground/",
+        "repo": "https://github.com/AbdelrahmanBayoumi/aes-cbc-playground"
+    },
+    {
+        "category": "Security",
+        "icon": "fa-key",
+        "iconColor": "text-yellow-600 dark:text-yellow-400",
+        "title": "TripleDES Encryptor/Decryptor",
+        "description": "A simple browser-based tool for 3DES encryption/decryption.",
+        "live": "https://abdelrahmanbayoumi.github.io/TripleDES-Encryptor-Decryptor/",
+        "repo": "https://github.com/AbdelrahmanBayoumi/TripleDES-Encryptor-Decryptor"
+    },
+    {
+        "category": "General",
+        "icon": "fa-map-location-dot",
+        "iconColor": "text-green-600 dark:text-green-400",
+        "title": "GeoIP Browser",
+        "description": "A dark-themed IP lookup tool powered by ipapi.co, returns full JSON geo data.",
+        "live": "https://abdelrahmanbayoumi.github.io/geoip-browser/",
+        "repo": "https://github.com/AbdelrahmanBayoumi/geoip-browser"
+    }
+]
