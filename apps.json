@@ -34,5 +34,14 @@
     "description": "A simple web tool to validate and format phone numbers by country. It checks number validity and instantly shows E.164, international, national, and RFC3966 formats.",
     "live": "https://phone-num-test.vercel.app/",
     "repo": "https://github.com/AbdelrahmanBayoumi/phone-num-test"
+  },
+  {
+    "category": "General",
+    "icon": "fa-video",
+    "iconColor": "text-cyan-600 dark:text-cyan-400",
+    "title": "Jitsi Virtual Background Test",
+    "description": "A static GitHub Pages repro page for testing Jitsi External API virtual background behavior.",
+    "live": "test/jitsi-test/jitsi-test.html",
+    "repo": "https://github.com/AbdelrahmanBayoumi/pages"
   }
 ]
