@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jitsi Virtual Background Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./jitsi-test.css" />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <main id="meetingView" class="meeting-view is-configuring flex min-h-screen flex-col">
+      <header
+        class="border-b border-white/10 bg-slate-900/80 px-4 py-4 backdrop-blur"
+      >
+        <div
+          class="mx-auto flex w-full max-w-7xl flex-col gap-4 lg:flex-row lg:items-end"
+        >
+          <div class="min-w-0 flex-1">
+            <p
+              class="text-sm font-medium uppercase tracking-wide text-cyan-300"
+            >
+              HUB-6064 repro
+            </p>
+            <h1 class="mt-1 text-2xl font-semibold text-white">
+              Jitsi Virtual Background Test
+            </h1>
+            <p id="activeMeetingId" class="mt-1 text-sm text-slate-400"></p>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <button id="openConfig" class="btn btn-secondary" type="button">
+              Configure
+            </button>
+            <button id="dispose" class="btn btn-danger" type="button">
+              Dispose
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="border-b border-white/10 bg-slate-900 px-4 py-4">
+        <div class="mx-auto flex w-full max-w-7xl flex-wrap gap-2">
+          <button id="toggleVbgDialog" class="btn btn-secondary" type="button">
+            toggleVirtualBackgroundDialog
+          </button>
+          <button id="setVbg" class="btn btn-secondary" type="button">
+            setVirtualBackground(true, TEST_BACKGROUND)
+          </button>
+          <button id="clearVbg" class="btn btn-secondary" type="button">
+            setVirtualBackground(false, "")
+          </button>
+        </div>
+
+        <div
+          class="mx-auto mt-3 flex w-full max-w-7xl flex-wrap items-center gap-3 text-sm text-slate-400"
+        >
+          <span id="statusBadge" class="status-badge">Idle</span>
+          <span id="statusText"
+            >Configure meetingId and JWT to start the repro.</span
+          >
+        </div>
+      </section>
+
+      <section class="min-h-0 flex-1 bg-slate-950 p-4">
+        <div class="mx-auto h-full w-full max-w-7xl">
+          <div id="meet" class="meet-shell"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="configModal" class="modal-backdrop">
+      <form id="configForm" class="modal-panel">
+        <div>
+          <p class="text-sm font-medium uppercase tracking-wide text-cyan-300">
+            Meeting config
+          </p>
+          <h2 class="mt-1 text-2xl font-semibold text-white">
+            Configure Jitsi test
+          </h2>
+          <p class="mt-2 text-sm text-slate-400">
+            These values are only used in this browser session to create the
+            External API meeting.
+          </p>
+        </div>
+
+        <label class="field">
+          <span class="field-label">domain</span>
+          <input
+            id="domain"
+            class="field-input"
+            type="text"
+            value="meet.ultatel.com"
+            autocomplete="off"
+            spellcheck="false"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span class="field-label">meetingId</span>
+          <input
+            id="meetingId"
+            class="field-input"
+            type="text"
+            value="replace-with-meeting-id"
+            autocomplete="off"
+            spellcheck="false"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span class="field-label">jwt</span>
+          <input
+            id="jwtToken"
+            class="field-input font-mono text-sm"
+            type="password"
+            placeholder="Paste JWT token"
+            autocomplete="off"
+            spellcheck="false"
+            required
+          />
+        </label>
+
+        <div class="flex flex-wrap justify-between gap-2">
+          <button id="toggleJwt" class="btn btn-secondary" type="button">
+            Show JWT
+          </button>
+          <button class="btn btn-primary" type="submit">
+            Open meeting view
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="./jitsi-test.js"></script>
+  </body>
+</html>
