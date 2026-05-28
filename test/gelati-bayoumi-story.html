@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قصتنا — جيلاتي بيومي منذ ١٩٢٥</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5EDD8;
+    --cream-light: #FAF7EF;
+    --brown-deep: #1C0E07;
+    --brown-dark: #2E1A0E;
+    --brown-mid: #5C3A22;
+    --gold: #C08B2F;
+    --gold-light: #D4A84B;
+    --gold-pale: #E8C97A;
+    --ink: #2C1810;
+    --ink-soft: #4A2E1A;
+    --muted: #8A6E58;
+    --divider: rgba(192,139,47,0.25);
+    --serif: 'Amiri', serif;
+    --sans: 'Cairo', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream-light);
+    color: var(--ink);
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--brown-deep);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 70%, rgba(192,139,47,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-year {
+    font-family: var(--serif);
+    font-size: clamp(80px, 18vw, 200px);
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.15;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    user-select: none;
+    letter-spacing: -4px;
+  }
+
+  .hero-tag {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: var(--gold-pale);
+    opacity: 0.7;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.4;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-family: var(--serif);
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--cream);
+    opacity: 0.55;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    opacity: 0.5;
+    font-size: 12px;
+    font-family: var(--sans);
+    font-weight: 300;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll::after {
+    content: '↓';
+    font-size: 18px;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── OPENER ── */
+  .opener {
+    background: var(--cream);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .opener-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .opener-line {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+  }
+
+  .opener h2 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 4vw, 44px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .opener p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin-top: 28px;
+    font-weight: 300;
+  }
+
+  /* ── CONTRAST SECTION ── */
+  .contrast {
+    background: var(--brown-dark);
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .contrast-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .contrast-block {
+    text-align: center;
+  }
+
+  .contrast-block .label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .contrast-block .value {
+    font-family: var(--serif);
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--cream);
+    line-height: 1.5;
+  }
+
+  .contrast-block.highlight .value {
+    color: var(--gold-light);
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 700;
+  }
+
+  .contrast-vs {
+    font-family: var(--serif);
+    font-size: 48px;
+    color: var(--gold);
+    opacity: 0.3;
+    font-style: italic;
+  }
+
+  /* ── STORY SECTIONS ── */
+  .story-section {
+    padding: 100px 40px;
+  }
+
+  .story-section:nth-child(even) {
+    background: var(--cream);
+  }
+
+  .story-section:nth-child(odd) {
+    background: var(--cream-light);
+  }
+
+  .story-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .story-inner.reverse {
+    direction: ltr;
+  }
+
+  .story-inner.reverse > * {
+    direction: rtl;
+  }
+
+  .story-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .story-year-big {
+    font-family: var(--serif);
+    font-size: 96px;
+    font-weight: 700;
+    color: var(--brown-deep);
+    opacity: 0.08;
+    line-height: 1;
+    margin-bottom: -20px;
+    user-select: none;
+  }
+
+  .story-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 28px;
+  }
+
+  .story-body {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .story-body p + p {
+    margin-top: 16px;
+  }
+
+  .story-body strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Visual side */
+  .story-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .story-card {
+    background: var(--brown-deep);
+    border-radius: 4px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-card::before {
+    content: '"';
+    font-family: var(--serif);
+    font-size: 120px;
+    color: var(--gold);
+    opacity: 0.1;
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    line-height: 1;
+  }
+
+  .story-card-text {
+    font-family: var(--serif);
+    font-size: clamp(17px, 2vw, 22px);
+    color: var(--cream);
+    line-height: 1.8;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .story-card-source {
+    font-size: 12px;
+    color: var(--gold);
+    margin-top: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Stat boxes */
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-box {
+    background: var(--cream);
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-box .num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-box .desc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* ── DIVIDER ── */
+  .gold-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 200px;
+    margin: 40px 0;
+  }
+
+  .gold-rule::before,
+  .gold-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .gold-rule .diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── DUA SECTION ── */
+  .dua-section {
+    background: var(--brown-deep);
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dua-section::before {
+    content: '❝';
+    font-family: var(--serif);
+    font-size: 300px;
+    color: var(--gold);
+    opacity: 0.04;
+    position: absolute;
+    top: -60px;
+    right: 10%;
+    line-height: 1;
+  }
+
+  .dua-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .dua-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  .dua-text {
+    font-family: var(--serif);
+    font-size: clamp(22px, 4vw, 38px);
+    color: var(--cream);
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .dua-context {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 32px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-section {
+    background: var(--cream);
+    padding: 100px 40px;
+  }
+
+  .timeline-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .timeline-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--divider);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    margin-bottom: 60px;
+    align-items: start;
+  }
+
+  .timeline-item:nth-child(even) .tl-content { text-align: right; grid-column: 3; }
+  .timeline-item:nth-child(even) .tl-empty { grid-column: 1; }
+  .timeline-item:nth-child(odd) .tl-content { text-align: right; grid-column: 1; }
+
+  .tl-dot {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+  }
+
+  .tl-dot-inner {
+    width: 14px;
+    height: 14px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+
+  .tl-year {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .tl-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .tl-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── SECRET SECTION ── */
+  .secret-section {
+    background: var(--brown-mid);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .secret-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .secret-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: var(--gold-pale);
+    opacity: 0.7;
+    margin-bottom: 32px;
+  }
+
+  .secret-title {
+    font-family: var(--serif);
+    font-size: clamp(30px, 5vw, 54px);
+    color: var(--cream);
+    font-weight: 700;
+    margin-bottom: 32px;
+    line-height: 1.3;
+  }
+
+  .secret-body {
+    font-size: 17px;
+    color: var(--cream);
+    opacity: 0.7;
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .secret-badge {
+    display: inline-block;
+    margin-top: 48px;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    padding: 14px 40px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gold-pale);
+    font-weight: 600;
+  }
+
+  /* ── LEGACY ── */
+  .legacy-section {
+    background: var(--cream-light);
+    padding: 100px 40px;
+  }
+
+  .legacy-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .legacy-years {
+    text-align: center;
+  }
+
+  .legacy-num {
+    font-family: var(--serif);
+    font-size: 110px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .legacy-unit {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 8px;
+    letter-spacing: 2px;
+  }
+
+  .legacy-text .story-label { margin-bottom: 16px; }
+
+  .legacy-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.5vw, 38px);
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .legacy-body {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    background: var(--brown-deep);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .closing-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .closing h2 {
+    font-family: var(--serif);
+    font-size: clamp(24px, 4vw, 44px);
+    color: var(--cream);
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .closing p {
+    font-size: 16px;
+    color: var(--cream);
+    opacity: 0.5;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .closing-line {
+    width: 1px;
+    height: 60px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin: 48px auto 0;
+  }
+
+  /* ── FADE IN ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.25s; }
+  .fade-in-delay-3 { transition-delay: 0.4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .story-inner { grid-template-columns: 1fr; gap: 40px; }
+    .story-inner.reverse { direction: rtl; }
+    .contrast-inner { grid-template-columns: 1fr; }
+    .contrast-vs { display: none; }
+    .timeline::before { right: 20px; }
+    .timeline-item { grid-template-columns: 1fr 40px; }
+    .tl-dot { grid-column: 2; }
+    .tl-content { grid-column: 1 !important; }
+    .legacy-inner { grid-template-columns: 1fr; text-align: center; }
+    .legacy-years { order: -1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-year">١٩٢٥</div>
+  <p class="hero-tag">الإسكندرية — منذ عام ١٩٢٥</p>
+  <h1>في ١٩٢٥،<br>وُلد مشروع من ولد<br><em>رفض أن يعيش على أحد</em></h1>
+  <p class="hero-sub">قصة إبراهيم بيومي، وعربة جيلاتي، وعهد لم يُكسر قط</p>
+  <div class="hero-scroll">اسحب للأسفل</div>
+</section>
+
+<!-- ═══════════════ OPENER ═══════════════ -->
+<section class="opener">
+  <div class="opener-inner fade-in">
+    <div class="opener-line"></div>
+    <h2>لم يكن هذا مجرد دكان مثلجات</h2>
+    <p>
+      كانت الإسكندرية في العشرينيات مدينة يسيطر على حرفها الأجانب —
+      اليونانيون، الإيطاليون، الأرمن. كانوا يصنعون الجيلاتي،
+      وكانوا يسمّونه بأسمائهم. جاء إبراهيم بيومي بلا رأس مال كبير،
+      بلا خلفية عائلية تجارية، ولا اسم معروف. جاء بشيء آخر:
+      <strong>صدق في الصنعة، وعهد مع نفسه لم يخلفه حتى آخر يوم في حياته.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTRAST ═══════════════ -->
+<section class="contrast">
+  <div class="contrast-inner fade-in">
+    <div class="contrast-block">
+      <p class="label">الآخرون كانوا</p>
+      <p class="value">أجانب يتحكمون في الصنعة — يونانيون وإيطاليون يصنعون الجيلاتي في الإسكندرية بمواد مستوردة</p>
+    </div>
+    <div class="contrast-vs">vs</div>
+    <div class="contrast-block highlight">
+      <p class="label">إبراهيم بيومي قال</p>
+      <p class="value">حليب طبيعي. تصنيع يومي. لا شيء صناعي. اسم مصري.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STORY 1: الولد ═══════════════ -->
+<section class="story-section">
+  <div class="story-inner">
+    <div class="fade-in">
+      <p class="story-label">الجذور — محرم بك، الإسكندرية</p>
+      <div class="story-year-big">١٩٠٨</div>
+      <h2 class="story-title">الولد الذي أبكى أباه في الشارع</h2>
+      <div class="story-body">
+        <p>
+          ترك إبراهيم بيومي المدرسة في الصف الرابع الابتدائي.
+          لم يكن يكره الدراسة — كان يريد أن يعتمد على نفسه.
+          بدأ ببيع الذرة المشوي على ضفاف ترعة المحمودية،
+          ثم مشى في شوارع الإسكندرية حاملاً سَبَتاً يبيع منه البرتقال.
+        </p>
+        <p>
+          رآه أبوه — <strong>الباش جنيني في بلدية الإسكندرية</strong> —
+          يبيع في الشارع بهذا الشقاء.
+          تأثر الأب وبكى. حاول أن يمنعه. لكن إبراهيم رفض ببساطة وهدوء.
+        </p>
+        <p>
+          لم يكن عناداً. كان مبدأ: <strong>لا يعيش على أحد.</strong>
+        </p>
+      </div>
+    </div>
+    <div class="story-visual fade-in fade-in-delay-2">
+      <div class="story-card">
+        <p class="story-card-text">
+          كان أبوه يبكي ويحاول أن يمنعه من البيع في الشارع.
+          وكان هو يرفض في هدوء تام ويُكمل.
+        </p>
+        <p class="story-card-source">من الرواية الشفوية — شهادة العائلة</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="num">٤</div>
+          <div class="desc">الصف الذي تركه وقرر يبني بنفسه</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">١٠</div>
+          <div class="desc">سنوات عمره حين بدأ يتعلم صناعة الجيلاتي</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DUA ═══════════════ -->
+<section class="dua-section">
+  <div class="dua-inner fade-in">
+    <p class="dua-label">العهد — الإسكندرية، ١٩٢٥</p>
+    <p class="dua-text">
+      "يا رب ارزقني بباب رزق ثابت،<br>
+      واللي يجيني منه آكل وأشرب أنا وعيالي،<br>
+      والباقي أطلعه لله"
+    </p>
+    <p class="dua-context">
+      قالها إبراهيم بيومي بعد أن أغلق محله الأول بسبب كرمه مع أهله.
+      وظل طوال حياته — ستة عقود كاملة — محافظاً على هذا العهد.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ STORY 2: ١٩٢٥ ═══════════════ -->
+<section class="story-section">
+  <div class="story-inner reverse">
+    <div class="story-visual fade-in">
+      <div class="story-card">
+        <p class="story-card-text">
+          بفضل أمانته وسمعته الطيبة، أصبح التاجر الوحيد المرخص له
+          بدخول فيلات البشوات وتسليم الطلبات لأصحابها شخصياً.
+        </p>
+        <p class="story-card-source">شهادة زبائن المحل القدامى</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="num">١٧</div>
+          <div class="desc">سنة كان عمره حين أطلق العربة الأولى</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">٠٪</div>
+          <div class="desc">مواد صناعية — من اليوم الأول حتى اليوم</div>
+        </div>
+      </div>
+    </div>
+    <div class="fade-in fade-in-delay-2">
+      <p class="story-label">التأسيس — ١٩٢٥</p>
+      <div class="story-year-big">١٩٢٥</div>
+      <h2 class="story-title">عربة خشبية في شوارع بوالينو</h2>
+      <div class="story-body">
+        <p>
+          في عام ١٩٢٥، كان إبراهيم بيومي يُعِد الحليب يدوياً في المنزل،
+          ينقله إلى "المغازة" — ورشة التبريد المشتركة ببوالينو قريبة من مسجد حجاج —
+          ليتم تدويره وسط الثلج والملح وتعبئته.
+          ثم يخرج بعربته في شوارع الإسكندرية.
+        </p>
+        <p>
+          بينما كان الأجانب يستخدمون مواد مستوردة،
+          رهن إبراهيم اسمه على قاعدة واحدة:
+          <strong>حليب طبيعي طازج. تصنيع يومي. لا شيء غير طبيعي.</strong>
+        </p>
+        <p>
+          الفرق كان واضحاً من أول كاس.
+          وسرعان ما تحولت العربة المتجولة إلى اسم معروف
+          في كل حارة من حارات محرم بك، وفي فيلات أعيان الإسكندرية على حدٍّ سواء.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STORY 3: ١٩٥٤ ═══════════════ -->
+<section class="story-section">
+  <div class="story-inner">
+    <div class="fade-in">
+      <p class="story-label">المحل الثابت — ١٩٥٤</p>
+      <div class="story-year-big">١٩٥٤</div>
+      <h2 class="story-title">شارع زين العابدين — العنوان الذي لم يتغير</h2>
+      <div class="story-body">
+        <p>
+          في عام ١٩٥٤، اشترى الشيخ إبراهيم رخصة لأول محل ثابت له
+          في تقاطع شارع <strong>زين العابدين</strong> مع شارع نصر أحمد زكي بمحرم بك.
+          كان في بدايته مخزناً لعرباته، قبل أن يتحول إلى صرح.
+        </p>
+        <p>
+          صممه بمنطق عبقري بسيط:
+          <strong>النصف الأمامي للبيع. النصف الخلفي للصنع.</strong>
+          لا يرى الزبون المصنع. لكن يذوق النتيجة.
+        </p>
+        <p>
+          في نفس العام، قرر إدخال منتجات شتوية لمواجهة الموسمية:
+          البليلة الساخنة باللبن والمكسرات التي لا تزال تُقدَّم حتى اليوم.
+        </p>
+      </div>
+
+      <div class="gold-rule"><div class="diamond"></div></div>
+
+      <div class="story-body">
+        <p>
+          رغم الإقبال الشديد وازدحام الرصيف والزبائن،
+          كان الشيخ إبراهيم يفرض غسل الرصيف بالماء كل ليلة —
+          رصيف المحل <em>ورصيف المدرسة المقابلة</em>.
+          كان الشارع أمام محله كل صباح كأن أحداً لم يمر عليه.
+        </p>
+      </div>
+    </div>
+    <div class="story-visual fade-in fade-in-delay-2">
+      <div class="story-card">
+        <p class="story-card-text">
+          لم يكن يسمح لأي عامل بالجلوس دون عمل.
+          وكان يطلب تذوق الجيلاتي يومياً — لا للمتعة، بل ليكتشف
+          أي تغيير طفيف في جودة الحليب.
+        </p>
+        <p class="story-card-source">رواية أبنائه</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="num">٧٠+</div>
+          <div class="desc">سنة في نفس العنوان بمحرم بك</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">٢</div>
+          <div class="desc">أقسام: أمام للبيع، خلف للصنع — بلا استثناء</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TIMELINE ═══════════════ -->
+<section class="timeline-section">
+  <div class="timeline-header fade-in">
+    <p class="story-label" style="text-align:center; margin-bottom:12px;">١٩٢٥ — حتى اليوم</p>
+    <h2>قرن من المحطات</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <div class="tl-content">
+        <div class="tl-year">١٩٢٥</div>
+        <div class="tl-title">العربة الأولى</div>
+        <div class="tl-desc">إبراهيم بيومي يطلق عربة جيلاتي متنقلة في شوارع محرم بك — ضد سيطرة الأجانب على الصنعة</div>
+      </div>
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-content">
+        <div class="tl-year">الأربعينيات</div>
+        <div class="tl-title">الحرب والثبات</div>
+        <div class="tl-desc">رغم الحرب العالمية الثانية ومعارك العلمين، يعود المؤسس لإسكندريته ومشروعه بعد فترة إخلاء مؤقتة</div>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="tl-content">
+        <div class="tl-year">١٩٥٤</div>
+        <div class="tl-title">المحل الثابت</div>
+        <div class="tl-desc">افتتاح المحل الرئيسي في شارع زين العابدين، محرم بك — العنوان الذي لا يزال قائماً</div>
+      </div>
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-content">
+        <div class="tl-year">السبعينيات</div>
+        <div class="tl-title">التخصص الكامل</div>
+        <div class="tl-desc">قرار المؤسس بالتركيز الكامل على الجيلاتي والبليلة — وقف عن الكثير ليكون الأفضل في القليل</div>
+      </div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="tl-content">
+        <div class="tl-year">١٩٨٧</div>
+        <div class="tl-title">إبراهيم بيومي يرحل</div>
+        <div class="tl-desc">يترك وراءه علامة تجارية عريقة، وصفة سرية لم تتغير، واسماً يُقال في محرم بك حتى اليوم</div>
+      </div>
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-content">
+        <div class="tl-year">١٩٩٣</div>
+        <div class="tl-title">الابتكار التقني</div>
+        <div class="tl-desc">الجيل الثاني يبتكر نظام محرك واحد يُشغّل ماكينتين في وقت واحد — حل مُصمم خصيصاً لا يوجد مثله</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SECRET ═══════════════ -->
+<section class="secret-section">
+  <div class="secret-inner fade-in">
+    <p class="secret-label">السر — منذ اليوم الأول</p>
+    <h2 class="secret-title">كريمة بيومي المميزة</h2>
+    <p class="secret-body">
+      هي توقيع المحل الخاص. السر الذي عجزت كل محلات المثلجات
+      داخل مصر وخارجها عن تقديمه بنفس المذاق.
+      لا تُقدَّم كحصة عادية — تُقطع <em>شريحة واحدة</em> تتوج رأس الكاس.
+      هذه الشريحة هي ما يتذكره الناس.
+    </p>
+    <div class="secret-badge">وصفة سرية — منذ ١٩٢٥</div>
+  </div>
+</section>
+
+<!-- ═══════════════ LEGACY ═══════════════ -->
+<section class="legacy-section">
+  <div class="legacy-inner">
+    <div class="legacy-years fade-in">
+      <div class="legacy-num">١٠٠</div>
+      <div class="legacy-unit">عام من الصدق</div>
+    </div>
+    <div class="legacy-text fade-in fade-in-delay-2">
+      <p class="story-label">الإرث — اليوم</p>
+      <h2 class="legacy-title">نفس الحليب. نفس الصدق. نفس الاسم.</h2>
+      <p class="legacy-body">
+        منذ أن طافت تلك العربة الخشبية شوارع بوالينو عام ١٩٢٥،
+        مرّت الإسكندرية بحروب وثورات وتحولات هائلة.
+        جاءت علامات تجارية عالمية بملايين الدولارات في الإعلانات.
+        وذهبت.
+      </p>
+      <p class="legacy-body" style="margin-top: 16px;">
+        جيلاتي بيومي بقي — لأنه لم يُراهن على الإعلانات.
+        راهن على كل كاس يخرج من المحل.
+        وهذا ما يراهن عليه الجيل الثاني اليوم، بنفس الطريقة،
+        في نفس المكان.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CLOSING ═══════════════ -->
+<section class="closing">
+  <div class="closing-inner fade-in">
+    <h2>"يا رب ارزقني بباب رزق ثابت،<br>والباقي أطلعه لله"</h2>
+    <p>إبراهيم بيومي سليمان — ١٩٠٨ ، ١٩٨٧<br>مؤسس جيلاتي بيومي، محرم بك، الإسكندرية</p>
+    <div class="closing-line"></div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
