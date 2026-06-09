@@ -98,3 +98,529 @@
       margin: 0 0 17px;
       color: var(--gold);
       font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    .eyebrow::after {
+      transform: scaleX(-1);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--green);
+      font-family: "Amiri", Georgia, serif;
+      font-size: clamp(2.2rem, 7vw, 4.7rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--green-soft);
+      font-size: clamp(1.05rem, 2.6vw, 1.42rem);
+      font-weight: 500;
+    }
+
+    .date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 31px;
+      padding: 10px 20px;
+      color: var(--green);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 700;
+      border: 1px solid rgba(184, 149, 85, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .date-badge svg {
+      width: 19px;
+      color: var(--gold);
+    }
+
+    .countdown-heading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: var(--gold);
+      font-size: clamp(0.95rem, 2.2vw, 1.12rem);
+      font-weight: 700;
+      animation: gentle-float 3.2s ease-in-out infinite;
+    }
+
+    .heart {
+      display: inline-block;
+      color: var(--green);
+      font-size: 1.05em;
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: clamp(8px, 2vw, 16px);
+      max-width: 790px;
+      margin: 0 auto;
+      direction: ltr;
+    }
+
+    .time-card {
+      position: relative;
+      min-width: 0;
+      padding: clamp(16px, 3vw, 25px) 7px clamp(13px, 2.5vw, 19px);
+      overflow: hidden;
+      border: 1px solid rgba(184, 149, 85, 0.26);
+      border-radius: 20px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.87), rgba(239, 230, 213, 0.64));
+      box-shadow: 0 12px 30px rgba(72, 73, 58, 0.09);
+      direction: rtl;
+    }
+
+    .time-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 18%;
+      left: 18%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .time-value {
+      display: block;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 7vw, 3.7rem);
+      font-weight: 700;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.04em;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 10px;
+      color: #6e725e;
+      font-size: clamp(0.78rem, 2vw, 1rem);
+      font-weight: 700;
+    }
+
+    .wedding-day-message {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 26px 20px;
+      color: var(--green);
+      font-family: "Amiri", Georgia, serif;
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.5;
+      border: 1px solid rgba(184, 149, 85, 0.32);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .floral {
+      position: absolute;
+      width: clamp(100px, 18vw, 175px);
+      height: clamp(100px, 18vw, 175px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .floral-top {
+      top: -28px;
+      right: -28px;
+    }
+
+    .floral-bottom {
+      bottom: -37px;
+      left: -30px;
+      transform: rotate(180deg);
+    }
+
+    .stem {
+      position: absolute;
+      width: 72%;
+      height: 72%;
+      border-top: 2px solid var(--gold-light);
+      border-radius: 50%;
+      transform: rotate(-43deg);
+      transform-origin: bottom right;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 28%;
+      height: 15%;
+      border: 1px solid rgba(73, 107, 91, 0.62);
+      border-radius: 100% 0 100% 0;
+      background: rgba(73, 107, 91, 0.08);
+    }
+
+    .leaf:nth-child(2) {
+      top: 30%;
+      right: 30%;
+      transform: rotate(-10deg);
+    }
+
+    .leaf:nth-child(3) {
+      top: 48%;
+      right: 50%;
+      transform: scaleX(-1) rotate(-28deg);
+    }
+
+    .leaf:nth-child(4) {
+      top: 13%;
+      right: 15%;
+      transform: scale(0.82) rotate(5deg);
+    }
+
+    .sparkle {
+      position: absolute;
+      z-index: -1;
+      color: var(--gold);
+      font-size: clamp(13px, 2vw, 20px);
+      opacity: 0.52;
+      pointer-events: none;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    .sparkle-one { top: 13%; left: 8%; }
+    .sparkle-two { top: 22%; right: 9%; animation-delay: -1.2s; }
+    .sparkle-three { bottom: 18%; right: 7%; animation-delay: -2s; }
+
+    .confetti-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .confetti {
+      position: absolute;
+      top: -20px;
+      width: 7px;
+      height: 13px;
+      border-radius: 5px;
+      background: var(--gold-light);
+      opacity: 0.42;
+      animation: confetti-fall linear infinite;
+    }
+
+    .confetti:nth-child(2n) {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-soft);
+    }
+
+    .confetti:nth-child(3n) {
+      background: #d8b6a0;
+      transform: rotate(45deg);
+    }
+
+    .confetti:nth-child(1) { left: 6%; animation-duration: 13s; animation-delay: -8s; }
+    .confetti:nth-child(2) { left: 17%; animation-duration: 16s; animation-delay: -3s; }
+    .confetti:nth-child(3) { left: 29%; animation-duration: 12s; animation-delay: -10s; }
+    .confetti:nth-child(4) { left: 41%; animation-duration: 18s; animation-delay: -6s; }
+    .confetti:nth-child(5) { left: 56%; animation-duration: 14s; animation-delay: -11s; }
+    .confetti:nth-child(6) { left: 69%; animation-duration: 17s; animation-delay: -2s; }
+    .confetti:nth-child(7) { left: 82%; animation-duration: 13s; animation-delay: -5s; }
+    .confetti:nth-child(8) { left: 93%; animation-duration: 19s; animation-delay: -12s; }
+
+    @keyframes card-arrival {
+      from { opacity: 0; transform: translateY(22px) scale(0.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.18); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.12); }
+    }
+
+    @keyframes gentle-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.8) rotate(0); }
+      50% { opacity: 0.75; transform: scale(1.12) rotate(12deg); }
+    }
+
+    @keyframes confetti-fall {
+      0% { transform: translate3d(0, -5vh, 0) rotate(0); }
+      50% { transform: translate3d(22px, 52vh, 0) rotate(180deg); }
+      100% { transform: translate3d(-16px, 108vh, 0) rotate(360deg); }
+    }
+
+    @media (max-width: 560px) {
+      .page-shell {
+        padding: 18px 10px;
+      }
+
+      .celebration-card {
+        padding: 37px 12px 25px;
+        border-radius: 27px;
+      }
+
+      .celebration-card::before {
+        inset: 7px;
+        border-radius: 21px;
+      }
+
+      .eyebrow::before,
+      .eyebrow::after {
+        width: 22px;
+      }
+
+      .date-badge {
+        margin-bottom: 25px;
+        padding: 9px 16px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .time-card {
+        grid-column: span 2;
+        border-radius: 15px;
+      }
+
+      .time-card:nth-child(4) {
+        grid-column: 2 / span 2;
+      }
+
+      .time-card:nth-child(5) {
+        grid-column: 4 / span 2;
+      }
+
+      .time-label {
+        margin-top: 7px;
+      }
+
+    }
+
+    @media (max-width: 380px) {
+      .time-card {
+        padding-right: 3px;
+        padding-left: 3px;
+      }
+
+      .time-value {
+        font-size: 1.82rem;
+      }
+
+      .time-label {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .confetti-layer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti-layer" aria-hidden="true">
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+  </div>
+
+  <main class="page-shell">
+    <article class="celebration-card" aria-labelledby="main-title">
+      <div class="floral floral-top" aria-hidden="true">
+        <span class="stem"></span>
+        <span class="leaf"></span>
+        <span class="leaf"></span>
+        <span class="leaf"></span>
+      </div>
+      <div class="floral floral-bottom" aria-hidden="true">
+        <span class="stem"></span>
+        <span class="leaf"></span>
+        <span class="leaf"></span>
+        <span class="leaf"></span>
+      </div>
+
+      <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+      <span class="sparkle sparkle-two" aria-hidden="true">✧</span>
+      <span class="sparkle sparkle-three" aria-hidden="true">✦</span>
+
+      <header>
+        <p class="eyebrow">يوم مميز قرب</p>
+        <h1 id="main-title">العد التنازلي لفرح حسن 🤍</h1>
+        <p class="subtitle">اللحظة المنتظرة قربت 🎉</p>
+        <p class="date-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+            <path d="M16 3v4M8 3v4M3 10h18"></path>
+            <path d="m9.5 15 1.7 1.7 3.6-4"></path>
+          </svg>
+          <time datetime="2026-11-08T20:00:00+02:00">8 نوفمبر 2026</time>
+        </p>
+      </header>
+
+      <section aria-labelledby="countdown-title">
+        <h2 class="countdown-heading" id="countdown-title">
+          باقي على الليلة الكبيرة
+          <span class="heart" aria-hidden="true">♥</span>
+        </h2>
+
+        <div class="countdown" id="countdown" role="timer" aria-live="off" aria-atomic="true">
+          <div class="time-card">
+            <span class="time-value" id="months">00</span>
+            <span class="time-label">الشهور</span>
+          </div>
+          <div class="time-card">
+            <span class="time-value" id="days">00</span>
+            <span class="time-label">الأيام</span>
+          </div>
+          <div class="time-card">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">الساعات</span>
+          </div>
+          <div class="time-card">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">الدقائق</span>
+          </div>
+          <div class="time-card">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">الثواني</span>
+          </div>
+        </div>
+
+        <p class="wedding-day-message" id="wedding-message" hidden>
+          النهارده فرح حسن! ألف مبروك يا عريس 🎉🤍
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <script>
+    // غيّر هذا الموعد إذا أردت تعديل تاريخ أو وقت الفرح لاحقًا.
+    const WEDDING_DATE = "2026-11-08T20:00:00+02:00";
+
+    const countdownElement = document.getElementById("countdown");
+    const weddingMessage = document.getElementById("wedding-message");
+    const valueElements = {
+      months: document.getElementById("months"),
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+
+    const targetTime = new Date(WEDDING_DATE).getTime();
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    const weddingTimezoneOffset = 2 * hour;
+    let countdownInterval;
+
+    function addCalendarMonths(date, months) {
+      const result = new Date(date);
+      const originalDay = result.getUTCDate();
+
+      result.setUTCDate(1);
+      result.setUTCMonth(result.getUTCMonth() + months);
+
+      const lastDayOfMonth = new Date(Date.UTC(
+        result.getUTCFullYear(),
+        result.getUTCMonth() + 1,
+        0
+      )).getUTCDate();
+
+      result.setUTCDate(Math.min(originalDay, lastDayOfMonth));
+      return result;
+    }
+
+    function getCountdownParts(nowTime) {
+      const now = new Date(nowTime + weddingTimezoneOffset);
+      const target = new Date(targetTime + weddingTimezoneOffset);
+      let months = (
+        (target.getUTCFullYear() - now.getUTCFullYear()) * 12
+        + target.getUTCMonth()
+        - now.getUTCMonth()
+      );
+      let monthAnchor = addCalendarMonths(now, months);
+
+      if (monthAnchor > target) {
+        months -= 1;
+        monthAnchor = addCalendarMonths(now, months);
+      }
+
+      const remaining = target - monthAnchor;
+
+      return {
+        months,
+        days: Math.floor(remaining / day),
+        hours: Math.floor((remaining % day) / hour),
+        minutes: Math.floor((remaining % hour) / minute),
+        seconds: Math.floor((remaining % minute) / second)
+      };
+    }
+
+    function updateCountdown() {
+      const remaining = targetTime - Date.now();
+
+      if (remaining <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.hidden = true;
+        weddingMessage.hidden = false;
+        return;
+      }
+
+      const countdown = getCountdownParts(Date.now());
+
+      valueElements.months.textContent = String(countdown.months).padStart(2, "0");
+      valueElements.days.textContent = String(countdown.days).padStart(2, "0");
+      valueElements.hours.textContent = String(countdown.hours).padStart(2, "0");
+      valueElements.minutes.textContent = String(countdown.minutes).padStart(2, "0");
+      valueElements.seconds.textContent = String(countdown.seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, second);
+
+  </script>
+</body>
+</html>
