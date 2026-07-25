@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل مراكز العلاج الطبيعي - تأمين MetLife مصر</title>
+  <meta name="description" content="دليل تفاعلي شامِل لعرض وتصفية مراكز العلاج الطبيعي المعتمدة في شبكة تأمين MetLife بمحافظات مصر.">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Leaflet CSS for Maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- App Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-notes-medical"></i>
+        </div>
+        <div class="brand-text">
+          <h1>مراكز العلاج الطبيعي</h1>
+          <p>شبكة تأمين MetLife مصر</p>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <div class="view-switcher">
+          <button class="view-btn active" data-view="grid">
+            <i class="fa-solid fa-border-all"></i> كروت
+          </button>
+          <button class="view-btn" data-view="split">
+            <i class="fa-solid fa-columns"></i> خريطة وقائمة
+          </button>
+          <button class="view-btn" data-view="map">
+            <i class="fa-solid fa-map-location-dot"></i> خريطة كاملة
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Live Statistics Section -->
+  <section class="hero-stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fa-solid fa-hospital-user"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-total-centers">144</div>
+          <div class="stat-label">مركز علاج طبيعي</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fa-solid fa-city"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-total-govs">17</div>
+          <div class="stat-label">محافظة مغطاة</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-total-cities">--</div>
+          <div class="stat-label">مدينة ومنطقة</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="color:#ef4444;">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-total-favs">0</div>
+          <div class="stat-label">المراكز المفضلة</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="app-container">
+    
+    <!-- Controls & Filters Section -->
+    <section class="controls-section">
+      <!-- Search Input -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="ابحث باسم المركز، اسم الطبيب، العنوان، أو رقم التليفون...">
+        <button id="clear-search-btn" class="clear-search-btn" title="مسح البحث">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Filters Row -->
+      <div class="filters-row">
+        <div class="filter-group">
+          <select id="gov-select" class="filter-select">
+            <option value="">كل المحافظات (All Governorates)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <select id="city-select" class="filter-select">
+            <option value="">كل المناطق / المدن</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <select id="network-select" class="filter-select">
+            <option value="">كل الفئات / الشبكات</option>
+          </select>
+        </div>
+
+        <button id="fav-toggle-btn" class="fav-toggle-btn">
+          <i class="fa-solid fa-heart"></i> المفضلة
+        </button>
+
+        <button id="reset-btn" class="reset-btn">
+          <i class="fa-solid fa-rotate-left"></i> إعاده ضبط
+        </button>
+      </div>
+    </section>
+
+    <!-- Dynamic Content Area (Grid / Split / Map) -->
+    <section id="content-area" class="content-area">
+      <!-- Content populated dynamically via JS -->
+    </section>
+
+  </main>
+
+  <!-- Modal View Overlay -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-container">
+      <button id="modal-close-btn" class="modal-close-btn" title="إغلاق">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body">
+        <!-- Modal content populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- App Data & Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
